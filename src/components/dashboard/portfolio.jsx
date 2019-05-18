@@ -58,25 +58,24 @@ class Portfolio extends React.Component {
           <div className="right-content">
 
             <div className="right-content-left">
-              <h2>338 Spear St Unit 31A</h2>
-              <p>San Francisco, CA 94105</p>
+              <h2 className="right-content-h2">338 Spear St Unit 31A</h2>
+              <p className="right-content-title">San Francisco, CA 94105</p>
               <div className="months">
-                <p>5.25%</p>
-                <p>85%LTV 12 MONTHS</p>
+                <p className="right-months-p1">5.25%</p>
+                <p className="right-months-p2">85%LTV 12 MONTHS</p>
               </div>
-              <div className="mannay-div">
+              <div className="portfolio-mannay-div">
                 <span>$500,000 total</span>
                 <span>$350,000 available</span>
               </div>
-              <div className="bottom-div">
-                <div className="bottom"></div>
+              <div className="portfolio-bottom-div">
+                <div className="portfolio-bottom"></div>
               </div>
-              <h3>New</h3>
-              <p>Be the first one to invest in this property</p>
-              <Button className="invest-button">Invest</Button>
+              <h3 className="new-title">New</h3>
+              <p className="new-content">Be the first one to invest in this property</p>
+              <Button type="primary" className="invest-button">Invest</Button>
             </div>
             <div className="right-content-right">
-              {/* <img src={Img} alt="img"/> */}
               <Slider {...settings}>
                 <div>
                   <img src={Img} />
