@@ -2,7 +2,7 @@ import React from 'react';
 import BreadcrumbCustom from '../BreadcrumbCustom';
 import SiderCustom from '../SiderCustom';
 import HeaderCustom from '../HeaderCustom';
-import { Button } from 'antd';
+import { Button , Icon } from 'antd';
 import Img from '../../style/imgs/img05.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,24 +14,24 @@ class Portfolio extends React.Component {
   };
 
   render() {
-    function SampleNextArrow(props) {
-      const { className, style, onClick } = props;
+    function SamplePrevArrow(props) {
+      const { style, onClick } = props;
       return (
-        <div
-          className={className}
-          style={{ ...style, display: "block", background: "red" }}
+        <Icon 
+        type="left"
+        style={{ ...style, display: "block" , position: "absolute" , top: "41%" , left: "20px" , zIndex: "10000" , fontSize: "20px" , color: "white"}}
           onClick={onClick}
-        />
+         />
       );
     }
-    
-    function SamplePrevArrow(props) {
-      const { className, style, onClick } = props;
+
+    function SampleNextArrow(props) {
+      const { style, onClick } = props;
       return (
-        <div
-          className={className}
-          style={{ ...style, display: "block", background: "green" }}
-          onClick={onClick}
+           <Icon 
+           type="right"
+           style={{ ...style, display: "block" , position: "absolute" , top: "41%" , right: "20px" , zIndex: "10000" , fontSize: "20px" , color: "white"}}
+             onClick={onClick}
         />
       );
     }
