@@ -18,7 +18,7 @@ import Loading from './widget/Loading';
 // import Banners from './ui/banners';
 // import Drags from './ui/Draggable';
 import Dashboard from './dashboard/Dashboard';
-import Portfolio from './dashboard/portfolio';
+import Opportunities from './dashboard/opportunities';
 // import Gallery from './ui/Gallery';
 // import BasicAnimations from './animation/BasicAnimations';
 // import ExampleAnimations from './animation/ExampleAnimations';
@@ -35,7 +35,7 @@ const WysiwygBundle = Loadable({ // 按需加载富文本配置
 
 export default {
     Dashboard,
-    Portfolio,
+    Opportunities,
     // BasicForm,
     // BasicTable,
     // AdvancedTable,

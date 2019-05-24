@@ -34,7 +34,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
@@ -72,7 +72,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
@@ -110,7 +110,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
@@ -148,7 +148,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
@@ -186,7 +186,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
@@ -224,7 +224,7 @@ class Dashboard extends React.Component {
           <Col className="gutter-row" md={4}>
             <div className="gutter-box">
               <Card bordered={false}>
-                <Link to="/portfolio">
+                <Link to="/opportunities">
                   <div className="content-border">
                     <div className="investment-content-img">
                       <img className="home-img" src={Img} alt="img" />
