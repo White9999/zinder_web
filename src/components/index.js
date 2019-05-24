@@ -1,8 +1,8 @@
 /**
  * 路由组件出口文件
  */
-import Loadable from 'react-loadable';
-import Loading from './widget/Loading';
+// import Loadable from 'react-loadable';
+// import Loading from './widget/Loading';
 // import BasicForm from './forms/BasicForm';
 // import BasicTable from './tables/BasicTables';
 // import AdvancedTable from './tables/AdvancedTables';
@@ -28,10 +28,10 @@ import Opportunities from './dashboard/opportunities';
 // import MapUi from './ui/map';
 // import QueryParams from './extension/QueryParams';
 
-const WysiwygBundle = Loadable({ // 按需加载富文本配置
-    loader: () => import('./ui/Wysiwyg'),
-    loading: Loading,
-});
+// const WysiwygBundle = Loadable({ // 按需加载富文本配置
+//     loader: () => import('./ui/Wysiwyg'),
+//     loading: Loading,
+// });
 
 export default {
     Dashboard,

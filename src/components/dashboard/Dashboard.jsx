@@ -1,13 +1,13 @@
 import React from 'react';
-import { Row, Col, Card, Popconfirm, message, Button, Pagination, Icon } from 'antd';
+import { Row, Col, Card, Popconfirm, message, Button, Icon } from 'antd';
 import { Link } from 'react-router-dom'
 import Img from '../../style/imgs/img05.jpg'
 function confirm() {
   message.info('Clicked on Yes.');
 }
-function onChange(pageNumber) {
-  console.log('Page: ', pageNumber);
-}
+// function onChange(pageNumber) {
+//   console.log('Page: ', pageNumber);
+// }
 class Dashboard extends React.Component {
   render() {
     const text = (

@@ -4,6 +4,7 @@ import NotFound from './components/pages/NotFound';
 import Login from './components/pages/Login';
 import App from './App';
 import Opportunities from '../src/components/dashboard/opportunities'
+import Portfolio from '../src/components/dashboard/portfolio'
 
 export default () => (
     <Router>
@@ -12,6 +13,7 @@ export default () => (
             <Route path="/app" component={App} />
             <Route path="/login" component={Login} />
             <Route path="/opportunities" component={Opportunities} />
+            <Route path="/portfolio" component={Portfolio} />
             <Route path="/404" component={NotFound} />
             <Route component={NotFound} />
 

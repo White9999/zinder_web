@@ -11,7 +11,7 @@ import echarts from 'echarts/lib/echarts';
 import 'echarts/lib/chart/bar';
 import 'echarts/lib/chart/line';
 import 'echarts/lib/component/tooltip';
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
+// import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 class Opportunities extends React.Component {
   state = {
@@ -34,7 +34,6 @@ class Opportunities extends React.Component {
         data: [5]
       }]
     });
-
     var myCharts = echarts.init(document.getElementById('mains'));
     myCharts.setOption({
       tooltip: {
@@ -84,8 +83,6 @@ class Opportunities extends React.Component {
       }
       ]
     });
-
-
     var myChartd = echarts.init(document.getElementById('maind'));
     myChartd.setOption({
       tooltip: {
@@ -135,8 +132,6 @@ class Opportunities extends React.Component {
       }
       ]
     });
-
-
     var myCharte = echarts.init(document.getElementById('maine'));
     myCharte.setOption({
       tooltip: {
@@ -186,7 +181,6 @@ class Opportunities extends React.Component {
       }
       ]
     });
-
     var myChartf = echarts.init(document.getElementById('mainf'));
     myChartf.setOption({
       tooltip: {
@@ -246,7 +240,6 @@ class Opportunities extends React.Component {
       }
       ]
     });
-
   }
   render() {
     function SamplePrevArrow(props) {
@@ -270,7 +263,6 @@ class Opportunities extends React.Component {
         />
       );
     }
-
     const { auth = { data: {} }, responsive = { data: {} } } = this.props;
     const settings = {
       dots: true,
@@ -285,16 +277,16 @@ class Opportunities extends React.Component {
     const menu = (
       <Menu>
         <Menu.Item key="0">
-          <a href="http://www.alipay.com/">1st menu item</a>
+          <a>1st menu item</a>
         </Menu.Item>
+        <Menu.Divider />
         <Menu.Item key="1">
-          <a href="http://www.taobao.com/">2nd menu item</a>
+          <a>2nd menu item</a>
         </Menu.Item>
         <Menu.Divider />
         <Menu.Item key="3">3rd menu item</Menu.Item>
       </Menu>
     );
-
     return (
       <div className="gutter-example button-demo portfolio-body">
         <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} />
@@ -304,7 +296,6 @@ class Opportunities extends React.Component {
             <BreadcrumbCustom first="Explore Opportunities" />
           </div>
           <div className="right-content">
-
             <div className="right-content-left">
               <h2 className="right-content-h2">338 Spear St Unit 31A</h2>
               <p className="right-content-title">San Francisco, CA 94105</p>
@@ -379,8 +370,8 @@ class Opportunities extends React.Component {
                 <div className="content3-echart-cnt">
                   <div className="content3-ec-cnt">
                     <p className="content3-echart-cnt-p1">Source</p>
-                    <p><div className="left-y"></div>Home Equity</p>
-                    <p><div className="right-y"></div>Tellus Loan @ 8.50%</p>
+                    <p><span className="left-y"></span>Home Equity</p>
+                    <p><span className="right-y"></span>Tellus Loan @ 8.50%</p>
                     <p>Total Value</p>
                   </div>
                   <div className="content3-echart-cnt2">
@@ -525,14 +516,12 @@ class Opportunities extends React.Component {
                 </div>
               </div>
             </div>
-
-
             <div className="content4">
               <h2 className="content3-echart-h2" style={{ marginTop: 20 }}>Neighborhood</h2>
               <p className="content3-echart-p1" style={{ marginTop: 40 }}>San Francisco, 94105</p>
               <div>
                 {/* <Map google={this.props.google} zoom={14} style={{width:'400px',height:"200px"}}></Map> */}
-                <img class="gooleMap" src={require('../../style/imgs/map.jpg')} alt="map" />
+                <img className="gooleMap" src={require('../../style/imgs/map.jpg')} alt="map" />
               </div>
 
               <div className="content6-lists">
@@ -546,10 +535,10 @@ class Opportunities extends React.Component {
                     <p className="right-content-title">Average Appreciation</p>
                     <div id="maine" style={{ width: 400, height: 250, left: -35 }}></div>
                     <p className="content6-p">
-                      <div className="content3-span-left"></div>US Average Home Index
+                      <span className="content3-span-left"></span>US Average Home Index
                   </p>
                     <p className="content6-p">
-                      <div className="content3-span-right" style={{ margin: "0", marginRight: "15px" }}></div>San Francisco Average Home Index
+                      <span className="content3-span-right" style={{ margin: "0", marginRight: "15px" }}></span>San Francisco Average Home Index
                   </p>
                     <ul className="content6-ul">
                       <li>Median Age
@@ -584,13 +573,13 @@ class Opportunities extends React.Component {
                   <div className="content6-cnt-right">
                     <div id="mainf" style={{ width: 400, height: 250, left: -35 }}></div>
                     <p className="content6-p">
-                      <div className="content6-span-a"></div>Per Capita Personal Income in San Francisco
+                      <span className="content6-span-a"></span>Per Capita Personal Income in San Francisco
                   </p>
                     <p className="content6-p">
-                      <div className="content6-span-b"></div>Per Capita Personal Income in California
+                      <span className="content6-span-b"></span>Per Capita Personal Income in California
                   </p>
                     <p className="content6-p">
-                      <div className="content6-span-c"></div>Per Capita Personal Income in United States
+                      <span className="content6-span-c"></span>Per Capita Personal Income in United States
                   </p>
                     <ul className="content6-ul">
                       <li>Income per Capita
@@ -622,7 +611,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
               <div className="information">
@@ -633,7 +622,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
               <div className="information">
@@ -644,7 +633,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
               <div className="information">
@@ -655,7 +644,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
               <div className="information">
@@ -666,7 +655,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
               <div className="information">
@@ -677,7 +666,7 @@ class Opportunities extends React.Component {
                   <p className="content8-p3">338 Spear St Unit 31A</p>
                   <p className="content8-p4">San Francisco, CA 94105</p>
                   <p className="content8-p5">$500,000 total · $350,000 available</p>
-                  <div class="portfolio-bottom-div2"><div class="portfolio-bottom"></div></div>
+                  <div className="portfolio-bottom-div2"><div className="portfolio-bottom"></div></div>
                 </div>
               </div>
             </div>
@@ -688,6 +677,8 @@ class Opportunities extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({
-  // apiKey: (YOUR_GOOGLE_API_KEY_GOES_HERE)
-})(Opportunities)
+// export default GoogleApiWrapper({
+//   // apiKey: (YOUR_GOOGLE_API_KEY_GOES_HERE)
+// })(Opportunities)
+
+export default Opportunities;

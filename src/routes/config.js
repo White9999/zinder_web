@@ -28,7 +28,7 @@ export default {
           component: 'Dashboard'
         },
         {
-          key: '',
+          key: '/app/dashboard/portfolio',
           title: 'My Portfolio',
           component: 'Portfolio'
         }
