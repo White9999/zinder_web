@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Routes from './routes';
 import DocumentTitle from 'react-document-title';
-import SiderCustom from './components/SiderCustom';
+// import SiderCustom from './components/SiderCustom';
 import HeaderCustom from './components/HeaderCustom';
 import { Layout} from 'antd';
 import { ThemePicker } from './components/widget';
@@ -30,11 +30,15 @@ class App extends Component {
     render() {
         const { title } = this.state;
         const { auth = { data: {} }, responsive = { data: {} } } = this.props;
-        console.log(auth);
+        // console.log(auth);
         return (
             <DocumentTitle title={title}>
                 <Layout>
-                    {!responsive.data.isMobile && <SiderCustom collapsed={this.state.collapsed} />}
+
+                    
+                    {/* <SiderCustom /> */}
+                    
+                    
                     <ThemePicker />
                     <Layout style={{flexDirection: 'column'}}>
                         <HeaderCustom toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
