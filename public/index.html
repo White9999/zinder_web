@@ -44,7 +44,7 @@
 
 
 		.t-slider-menu {
-			width: 280px;
+			min-width: 280px;
 			height: 100%;
 		}
 
@@ -59,7 +59,7 @@
 			padding: 0;
 		}
 
-		.content-list-li {
+		.menuDiv {
 			width: 100%;
 			line-height: 50px;
 			font-size: 17px;
@@ -68,7 +68,8 @@
 			cursor: pointer;
 		}
 
-		.content-list-li:hover {
+
+		.menuDiv:hover {
 			background: rgb(240, 242, 245)
 		}
 
@@ -81,19 +82,18 @@
 			padding: 0;
 			margin: 0;
 			margin-left: 30px;
+			color: black;
+			cursor: pointer;
 		}
 
-		.content-list-a:hover {
-			color: black;
-		}
 
 		.content-list-2 {
 			list-style: none;
 			padding: 0;
-			/* display: none; */
 			width: 100%;
 			overflow: hidden;
 			max-height: 0;
+			margin: 0;
 		}
 
 		.content-list-2-li {
@@ -129,41 +129,6 @@
 			margin: 12px;
 			display: none;
 		}
-
-
-
-
-
-
-
-		ul,
-		ol,
-		li {
-			list-style: none;
-		}
-
-		#nav>ul>li {
-			width: 160px;
-			text-align: center;
-			float: left;
-			list-style: none;
-		}
-
-		a {
-			text-decoration: none;
-			color: #000;
-		}
-
-		a:hover {
-			text-decoration: underline;
-			color: #fff;
-		}
-
-
-		/* 
-		#content-list-span{
-			display: none;
-		} */
 	</style>
 	<title>Tellus App</title>
 </head>
@@ -179,66 +144,24 @@
 				<h2 class="user-name">My account</h2>
 			</div>
 			<div>
-				<ul id="test" class="content-list">
+				<div id="test" class="content-list">
 
-				</ul>
-				<!-- <ul id="test" class="content-list"> -->
-				<!-- <li id="content-list-span" class="content-list-li" onclick="onOver(this)">
-							<a class="content-list-a"><img class="content-list-img" src="http://127.0.0.1/img/user-title.jpg" />
-						Dashboard</a>
-						<span>
-							<img class="right" src="http://127.0.0.1/img/right.jpg" />
-							<img class="bottoms" src="http://127.0.0.1/img/bottom.jpg" />
-						</span>
-						<ul id="content-lst" class="companyIntroduceUrl content-list-2">
-							<li class="content-list-2-li">
-								<a class="content-list-2-a" href="">
-									asd
-								</a>
-							</li>
-						</ul>
-					</li> -->
-				<!-- </ul> -->
-				<!-- <ul id="test" class="content-list">
-					<li id="content-list-span" class="content-list-li">
-						<img class="content-list-img" src="http://127.0.0.1/img/user-title.jpg" />
-						<a class="content-list-a" href="">Dashboard</a>
-						<span>
-							<img class="right" src="http://127.0.0.1/img/right.jpg" />
-							<img class="bottoms" src="http://127.0.0.1/img/bottom.jpg" />
-						</span>
-					</li>
-					<ul id="content-lst" class="content-list-2">
-						<li class="content-list-2-li">
-							<a class="content-list-2-a" href="">
-								asd
-							</a>
-						</li>
-						<li class="content-list-2-li">
-							<a class="content-list-2-a" href="">
-								asd
-							</a>
-						</li>
-					</ul>
-				</ul> -->
+				</div>
 			</div>
 		</div>
 		<div id="root"></div>
 		<script type="text/html" id="ts1">
-			{{each sta}}	
-			<li id="content-list-span" class="content-list-li" {{if $value.subs.length>0}}onclick="clks(this){{/if}}">
-				<a class="content-list-a"><img class="content-list-img" src="http://127.0.0.1/img/user-title.jpg" />
-				{{$value.title}}</a>
-				<!-- <span>
-					<img class="right" src="http://127.0.0.1/img/right.jpg" />
-					<img class="bottoms" src="http://127.0.0.1/img/bottom.jpg" />
-				</span> -->
-				{{if $value.subs.length >0}}
-				{{include 'art4' $value}} 
-				{{/if}}
-			</li> 
-			{{/each}}
+				{{each sta}}	
+				<div id="content-list-span" class="menuDiv"> 
+					<h3 class="content-list-a"><img class="content-list-img" src="http://127.0.0.1/img/user-title.jpg" />
+						{{$value.title}}</h3> 
+					{{if $value.subs.length >0}}
+					{{include 'art4' $value}} 
+					{{/if}}
+				</div>
+				{{/each}}
 		</script>
+
 		<script id="art4" type="text/html">
 			<ul id="content-lst" class="companyIntroduceUrl content-list-2">
 				{{each subs}}
@@ -263,24 +186,108 @@
 			var data = {
 				sta: stp
 			}
-
 			console.log(stp)
 			var html = template("ts1", data);
 			document.getElementById('test').innerHTML = html;
-			
-			var box = document.getElementById('content-list-span');
-			box.addEventListener('click',clks,false)
-			function clks(e){
-				if (!box.contains(e.target)) {
-					document.querySelector("#content-lst").style.transition = "max-height 3s ease";
-					document.querySelector("#content-lst").style.maxHeight = "3000px";
-				} else{
-					document.querySelector("#content-lst").style.maxHeight = "0";
-					document.querySelector("#content-lst").style.transition = "max-height 2s ease";
+		</script>
+		<script type="text/javascript">
+			function MenuSwitch(className) {
+				this._elements = [];
+				this._default = -1;
+				this._className = className;
+				this._previous = false;
+			}
+			MenuSwitch.prototype.setDefault = function (id) {
+				this._default = Number(id);
+			}
+			MenuSwitch.prototype.setPrevious = function (flag) {
+				this._previous = Boolean(flag);
+			}
+			MenuSwitch.prototype.collectElementbyClass = function () {
+				this._elements = [];
+				var allelements = document.getElementsByTagName("div");
+				for (var i = 0; i < allelements.length; i++) {
+					var mItem = allelements[i];
+					if (typeof mItem.className == "string" && mItem.className == this._className) {
+						var h3s = mItem.getElementsByTagName("h3");
+						var uls = mItem.getElementsByTagName("ul");
+						if (h3s.length == 1 && uls.length == 1) {
+							h3s[0].style.cursor = "hand";
+							if (this._default == this._elements.length) {
+								uls[0].style.maxHeight = "0";
+							} else {
+								uls[0].style.maxHeight = "0";
+							}
+							this._elements[this._elements.length] = mItem;
+						}
+					}
 				}
 			}
-
+			MenuSwitch.prototype.open = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				uls[0].style.transition = "max-height 3s ease";
+				uls[0].style.maxHeight = "3000px";
+			}
+			MenuSwitch.prototype.close = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				uls[0].style.transition = "max-height .5s ease";
+				uls[0].style.maxHeight = "0px";
+			}
+			MenuSwitch.prototype.isOpen = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				uls[0].style.transition = "max-height 3s ease";
+				uls[0].style.maxHeight = "100px";
+			}
+			MenuSwitch.prototype.toggledisplay = function (header) {
+				var mItem;
+				if (window.addEventListener) {
+					mItem = header.parentNode;
+				} else {
+					mItem = header.parentElement;
+				}
+				if (this.open(mItem)) {
+					this.close(mItem);
+				} else {
+					this.open(mItem);
+				}
+				if (!this._previous) {
+					for (var i = 0; i < this._elements.length; i++) {
+						if (this._elements[i] != mItem) {
+							var uls = this._elements[i].getElementsByTagName("ul");
+							// uls[0].style.display = "none";
+							uls[0].style.transition = "max-height .5s ease";
+							uls[0].style.maxHeight = "0px";
+						}
+					}
+				}
+			}
+			MenuSwitch.prototype.init = function () {
+				var instance = this;
+				this.collectElementbyClass();
+				if (this._elements.length == 0) {
+					return;
+				}
+				for (var i = 0; i < this._elements.length; i++) {
+					var h3s = this._elements[i].getElementsByTagName("h3");
+					if (window.addEventListener) {
+						h3s[0].addEventListener("click", function () { instance.toggledisplay(this); }, false);
+					} else {
+						h3s[0].onclick = function () { instance.toggledisplay(this); }
+					}
+				}
+			}
 		</script>
+
+
+
+		<script language="javascript">
+			var mSwitch = new MenuSwitch("menuDiv");
+			mSwitch.setDefault(0);
+			mSwitch.setPrevious(false);
+			mSwitch.init();
+		</script>
+
+
 	</div>
 </body>
 
