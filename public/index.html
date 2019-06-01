@@ -230,13 +230,12 @@
 			}
 			MenuSwitch.prototype.close = function (mElement) {
 				var uls = mElement.getElementsByTagName("ul");
-				uls[0].style.transition = "max-height .5s ease";
+				uls[0].style.transition = "max-height 1s ease";
 				uls[0].style.maxHeight = "0px";
 			}
 			MenuSwitch.prototype.isOpen = function (mElement) {
 				var uls = mElement.getElementsByTagName("ul");
-				uls[0].style.transition = "max-height 3s ease";
-				uls[0].style.maxHeight = "100px";
+				return uls[0].style.transition == "max-height 3s ease", uls[0].style.maxHeight == "3000px";
 			}
 			MenuSwitch.prototype.toggledisplay = function (header) {
 				var mItem;
@@ -245,7 +244,7 @@
 				} else {
 					mItem = header.parentElement;
 				}
-				if (this.open(mItem)) {
+				if (this.isOpen(mItem)) {
 					this.close(mItem);
 				} else {
 					this.open(mItem);
@@ -254,7 +253,6 @@
 					for (var i = 0; i < this._elements.length; i++) {
 						if (this._elements[i] != mItem) {
 							var uls = this._elements[i].getElementsByTagName("ul");
-							// uls[0].style.display = "none";
 							uls[0].style.transition = "max-height .5s ease";
 							uls[0].style.maxHeight = "0px";
 						}

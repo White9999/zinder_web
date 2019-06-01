@@ -289,7 +289,7 @@ class Opportunities extends React.Component {
     );
     return (
       <div className="gutter-example button-demo portfolio-body">
-        <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} />
+        {/* <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} /> */}
         <div>
           <HeaderCustom className="portfolio-title" toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
           <div className="bread-crumbs">
