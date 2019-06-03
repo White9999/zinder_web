@@ -19,6 +19,7 @@
 // import Drags from './ui/Draggable';
 import Dashboard from './dashboard/Dashboard';
 import Opportunities from './dashboard/opportunities';
+import Portfolio from './dashboard/portfolio'
 // import Gallery from './ui/Gallery';
 // import BasicAnimations from './animation/BasicAnimations';
 // import ExampleAnimations from './animation/ExampleAnimations';
@@ -28,14 +29,11 @@ import Opportunities from './dashboard/opportunities';
 // import MapUi from './ui/map';
 // import QueryParams from './extension/QueryParams';
 
-// const WysiwygBundle = Loadable({ // 按需加载富文本配置
-//     loader: () => import('./ui/Wysiwyg'),
-//     loading: Loading,
-// });
 
 export default {
     Dashboard,
     Opportunities,
+    Portfolio,
     // BasicForm,
     // BasicTable,
     // AdvancedTable,
