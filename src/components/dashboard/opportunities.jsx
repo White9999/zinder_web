@@ -1,8 +1,8 @@
 import React from 'react';
 import BreadcrumbCustom from '../BreadcrumbCustom';
-import SiderCustom from '../SiderCustom';
+// import SiderCustom from '../SiderCustom';
 import HeaderCustom from '../HeaderCustom';
-import { Button, Icon, Slider, Menu, Dropdown } from 'antd';
+import { Button, Icon, Slider, Menu, Dropdown, Modal } from 'antd';
 import Img from '../../style/imgs/img05.jpg';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -16,12 +16,30 @@ import 'echarts/lib/component/tooltip';
 class Opportunities extends React.Component {
   state = {
     collapsed: false,
+    visible: false
   };
 
+  showModal = () => {
+    this.setState({
+      visible: true,
+    });
+  };
+
+  handleOk = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
+
+  handleCancel = e => {
+    console.log(e);
+    this.setState({
+      visible: false,
+    });
+  };
   componentDidMount() {
-    // 基于准备好的dom，初始化echarts实例
     var myChart = echarts.init(document.getElementById('main'));
-    // 绘制图表
     myChart.setOption({
       tooltip: {},
       xAxis: {
@@ -247,7 +265,7 @@ class Opportunities extends React.Component {
       return (
         <Icon
           type="left"
-          style={{ ...style, display: "block", position: "absolute", top: "41%", left: "20px", zIndex: "10000", fontSize: "20px", color: "white" }}
+          style={{ ...style, display: "block",position: "absolute", top: "37%", left: "20px", zIndex: "1000", fontSize: "30px", color: "white" }}
           onClick={onClick}
         />
       );
@@ -258,7 +276,7 @@ class Opportunities extends React.Component {
       return (
         <Icon
           type="right"
-          style={{ ...style, display: "block", position: "absolute", top: "41%", right: "20px", zIndex: "10000", fontSize: "20px", color: "white" }}
+          style={{ ...style, display: "block", position: "absolute", top: "37%", right: "20px", zIndex: "1000", fontSize: "30px", color: "white" }}
           onClick={onClick}
         />
       );
@@ -287,9 +305,11 @@ class Opportunities extends React.Component {
         <Menu.Item key="3">3rd menu item</Menu.Item>
       </Menu>
     );
+    const astyle = {padding :1 , height:"100px"}
     return (
       <div className="gutter-example button-demo portfolio-body">
         {/* <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} /> */}
+        <div className="bg"></div>
         <div>
           <HeaderCustom className="portfolio-title" toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
           <div className="bread-crumbs">
@@ -315,20 +335,48 @@ class Opportunities extends React.Component {
               <Button type="primary" className="invest-button">Invest</Button>
             </div>
             <div className="right-content-right">
-              <SliderS {...settings}>
-                <div>
-                  <img src={Img} />
-                </div>
-                <div>
-                  <img src={Img} />
-                </div>
-                <div>
-                  <img src={Img} />
-                </div>
-                <div>
-                  <img src={Img} />
-                </div>
-              </SliderS>
+              <div type="primary" onClick={this.showModal}>
+                <SliderS {...settings}>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                </SliderS>
+              </div>
+              <Modal
+                title=""
+                visible={this.state.visible}
+                onOk={this.handleOk}
+                onCancel={this.handleCancel}
+                footer={null}
+                style={astyle}
+                width="700px"
+                className="modalq"
+              >
+                <SliderS 
+                {...settings}>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                  <div>
+                    <img src={Img} />
+                  </div>
+                </SliderS>
+              </Modal>
             </div>
           </div>
           <div className="content-2-body">

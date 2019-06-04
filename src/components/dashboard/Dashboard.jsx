@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Popconfirm, message, Button, Icon } from 'antd';
+import { Row, Col, Card, Popconfirm, message, Button, Icon, Slider, Switch } from 'antd';
 import { Link } from 'react-router-dom'
 import Img from '../../style/imgs/img05.jpg'
 function confirm() {
@@ -9,9 +9,41 @@ function confirm() {
 //   console.log('Page: ', pageNumber);
 // }
 class Dashboard extends React.Component {
+  state = {
+    disabled: false
+  }
+  handleDisabledChange = disabled => {
+    this.setState({ disabled });
+  };
+
+
   render() {
     const text = (
-      <div>asdsad</div>
+      <div className="sliders">
+        <div className="sliders-tit">
+          <p className="sliders-tit-p">Yield %<span className="sliders-tit-sp">1 - 10%</span></p>
+          <Slider min={1} max={10} className="sliders-body" range defaultValue={[0, 10]} disabled={this.state.disabled} />
+        </div>
+        <div className="sliders-tit-di">
+          <p className="sliders-tit-p">Location<span className="sliders-tit-sp">Choose area ></span></p>
+        </div>
+        <div className="sliders-cnt">
+          <p className="sliders-tit-p">Loan duration<span className="sliders-tit-sp">1 - 18 month</span></p>
+          <Slider min={1} max={18} className="sliders-body" range defaultValue={[0, 18]} disabled={this.state.disabled} />
+        </div>
+        <div className="sliders-cnt">
+          <p className="sliders-tit-p">Loan size<span className="sliders-tit-sp">0 to 500,000+</span></p>
+          <Slider min={0} max={550000} className="sliders-body" range defaultValue={[0, 450000]} disabled={this.state.disabled} />
+        </div>
+        <div className="sliders-cnt">
+          <p className="sliders-tit-p">Bedrooms<span className="sliders-tit-sp">1 - 4</span></p>
+          <Slider min={1} max={4}  className="sliders-body" range defaultValue={[1, 4]} disabled={this.state.disabled} />
+        </div>
+        <div className="sliders-cnt">
+          <p className="sliders-tit-p">Bathrooms<span className="sliders-tit-sp">0 to 4+</span></p>
+          <Slider min={0} max={4}  className="sliders-body" range defaultValue={[0, 4]} disabled={this.state.disabled} />
+        </div>
+      </div>
     )
     return (
       <div className="gutter-example button-demo">
