@@ -16,7 +16,46 @@ import 'echarts/lib/component/tooltip';
 class Opportunities extends React.Component {
   state = {
     collapsed: false,
-    visible: false
+    visible: false,
+    visible2: false,
+    isToggleOn: true,
+    dispaly: 'block',
+    dishid: 'none'
+  };
+
+  onInput = (e) => {
+    if(e.target.value.length > 8){
+      e.target.value= e.target.value.slice(0 ,8)
+    }
+  }
+
+  handleClick = () => {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn,
+      display: prevState.isToggleOn ? 'none' : 'block',
+      dishid: prevState.isToggleOn ? 'block' : 'none',
+    }));
+  }
+
+
+  showModal2 = () => {
+    this.setState({
+      visible2: true,
+    });
+  };
+
+  handleOk2 = e => {
+    console.log(e);
+    this.setState({
+      visible2: false,
+    });
+  };
+
+  handleCancel2 = e => {
+    console.log(e);
+    this.setState({
+      visible2: false,
+    });
   };
 
   showModal = () => {
@@ -43,11 +82,11 @@ class Opportunities extends React.Component {
     myChart.setOption({
       tooltip: {},
       xAxis: {
-        data: ["别开枪"]
+        data: ["$"]
       },
       yAxis: {},
       series: [{
-        name: '子弹数',
+        name: '什么钱',
         type: 'bar',
         data: [5]
       }]
@@ -260,15 +299,12 @@ class Opportunities extends React.Component {
     });
   }
   render() {
-    // function onClick(e){
-    //   e.stopPropagation();
-    // }
     function SamplePrevArrow(props) {
       const { style, onClick } = props;
       return (
         <Icon
           type="left"
-          style={{ ...style, display: "block",position: "absolute", top: "37%", left: "20px", zIndex: "1000", fontSize: "30px", color: "white" }}
+          style={{ ...style, display: "block", position: "absolute", top: "37%", left: "20px", zIndex: "1000", fontSize: "30px", color: "white" }}
           onClick={onClick}
         />
       );
@@ -308,7 +344,7 @@ class Opportunities extends React.Component {
         <Menu.Item key="3">3rd menu item</Menu.Item>
       </Menu>
     );
-    const astyle = {padding :1 , height:"100px"}
+    const astyle = { padding: 1, height: "100px" }
     return (
       <div className="gutter-example button-demo portfolio-body">
         {/* <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} /> */}
@@ -334,7 +370,51 @@ class Opportunities extends React.Component {
               </div>
               <h3 className="new-title">New</h3>
               <p className="new-content">Be the first one to invest in this property</p>
-              <Button type="primary" className="invest-button">Invest</Button>
+              <Button type="primary" onClick={this.showModal2} className="invest-button">Invest</Button>
+              <Modal
+                title=""
+                visible={this.state.visible2}
+                onOk={this.handleOk2}
+                onCancel={this.handleCancel2}
+                footer={null}
+                width="800px"
+              >
+                <div className="investbdy">
+                  <div className="investcnt-left">
+                    <img src={Img} className="investImg" />
+                  </div>
+                  <div className="investcnt">
+                    <p className="investcnt-p">Invest in this property</p>
+                    <h2 className="investcnt-h2" style={{ display: this.state.display }}>$95,000&nbsp;
+                    <a onClick={this.handleClick}><Icon style={{ fontSize: 19, color: "rgb(58, 19, 197)" }} type="highlight" /></a>
+                    </h2>
+                    <div className="invest-int-bd" style={{ display: this.state.dishid }}>
+                      <input className="invest-int" type="number" onInput={this.onInput} />
+                    </div>
+                    <Slider defaultValue={30} className="investcnt-slider" tooltipVisible={false} />
+                    <p className="investcnt-p2">Choose your share size</p>
+                    <ul className="investcnt-ul">
+                      <li className="investcnt-ul-li">
+                        <div className="investcnt-ul-li-cnt">$50,575
+                            <p className="investcnt-ul-li-spn">total return</p>
+                        </div>
+                        <div className="investcnt-ul-li-cnt">$4,214.58
+                            <p className="investcnt-ul-li-spn">monthly return</p>
+                        </div>
+                      </li>
+                      <li className="investcnt-ul-li">
+                        <div className="investcnt-ul-li-cnt">6.25%
+                            <p className="investcnt-ul-li-spn">annual interest rate</p>
+                        </div>
+                        <div className="investcnt-ul-li-cnt">12 Months
+                            <p className="investcnt-ul-li-spn">duration</p>
+                        </div>
+                      </li>
+                    </ul>
+                    <Button type="primary" className="invest-button2">Invest</Button>
+                  </div>
+                </div>
+              </Modal>
             </div>
             <div className="right-content-right">
               <div type="primary" onClick={this.showModal}>
@@ -363,8 +443,8 @@ class Opportunities extends React.Component {
                 width="700px"
                 className="modalq"
               >
-                <SliderS 
-                {...settings}>
+                <SliderS
+                  {...settings}>
                   <div>
                     <img src={Img} />
                   </div>
