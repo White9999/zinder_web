@@ -260,6 +260,9 @@ class Opportunities extends React.Component {
     });
   }
   render() {
+    // function onClick(e){
+    //   e.stopPropagation();
+    // }
     function SamplePrevArrow(props) {
       const { style, onClick } = props;
       return (
@@ -309,7 +312,6 @@ class Opportunities extends React.Component {
     return (
       <div className="gutter-example button-demo portfolio-body">
         {/* <SiderCustom className="portfolio-left-list" collapsed={this.state.collapsed} /> */}
-        <div className="bg"></div>
         <div>
           <HeaderCustom className="portfolio-title" toggle={this.toggle} collapsed={this.state.collapsed} user={auth.data || {}} />
           <div className="bread-crumbs">
