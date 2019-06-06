@@ -2,6 +2,7 @@ import React from 'react';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Imgs from '../../style/imgs/content-left.jpg'
+import { Link } from 'react-router-dom'
 
 class Portfolio extends React.Component {
 
@@ -12,36 +13,42 @@ class Portfolio extends React.Component {
           <h2 className="portfolio-h2">My Investment</h2>
           <p className="portfolio-title-1">ACTIVE</p>
           <div className="portfolio-cnt">
-            <div className="portfolio-cnt-list">
-              <img className="portfolio-cnt-1" src={Imgs} alt="" />
-              <div className="portfolio-cnt-2">
-                <p className="portfolio-cnt1-title"><span>$19,400</span><span>2.00%APR</span></p>
-                <p className="portfolio-cnt1-p">102 South Street #302,</p>
-                <p className="portfolio-cnt1-p2" >NY 14850</p>
-                <p className="portfolio-cnt1-p3">Fully invested <span>11.00%LTV</span></p>
+            <Link to="/opportunities">
+              <div className="portfolio-cnt-list">
+                <img className="portfolio-cnt-1" src={Imgs} alt="" />
+                <div className="portfolio-cnt-2">
+                  <p className="portfolio-cnt1-title"><span>$19,400</span><span>2.00%APR</span></p>
+                  <p className="portfolio-cnt1-p">102 South Street #302,</p>
+                  <p className="portfolio-cnt1-p2" >NY 14850</p>
+                  <p className="portfolio-cnt1-p3">Fully invested <span>11.00%LTV</span></p>
+                </div>
               </div>
-            </div>
-            <div className="portfolio-cnt-list">
-              <img className="portfolio-cnt-1" src={Imgs} alt="" />
-              <div className="portfolio-cnt-2">
-                <p className="portfolio-cnt1-title"><span>$4,000</span><span>3.50%APR</span></p>
-                <p className="portfolio-cnt1-p">102 South Street #302,</p>
-                <p className="portfolio-cnt1-p2" >NY 14850</p>
-                <p className="portfolio-cnt1-p3">Fully invested <span>20.00%LTV</span></p>
+            </Link>
+            <Link to="/opportunities">
+              <div className="portfolio-cnt-list">
+                <img className="portfolio-cnt-1" src={Imgs} alt="" />
+                <div className="portfolio-cnt-2">
+                  <p className="portfolio-cnt1-title"><span>$4,000</span><span>3.50%APR</span></p>
+                  <p className="portfolio-cnt1-p">102 South Street #302,</p>
+                  <p className="portfolio-cnt1-p2" >NY 14850</p>
+                  <p className="portfolio-cnt1-p3">Fully invested <span>20.00%LTV</span></p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <p className="portfolio-title-2">WAITLSTED</p>
           <div className="portfolio-cnt">
-            <div className="portfolio-cnt-list">
-              <img className="portfolio-cnt-1" src={Imgs} alt="" />
-              <div className="portfolio-cnt-2">
-                <p className="portfolio-cnt1-title"><span>$14,000</span><span>3.50%APR</span></p>
-                <p className="portfolio-cnt1-p">102 South Street #302,</p>
-                <p className="portfolio-cnt1-p2" >NY 14850</p>
-                <p className="portfolio-cnt1-p3">Fully invested <span>20.00%LTV</span></p>
+            <Link to="/opportunities">
+              <div className="portfolio-cnt-list">
+                <img className="portfolio-cnt-1" src={Imgs} alt="" />
+                <div className="portfolio-cnt-2">
+                  <p className="portfolio-cnt1-title"><span>$14,000</span><span>3.50%APR</span></p>
+                  <p className="portfolio-cnt1-p">102 South Street #302,</p>
+                  <p className="portfolio-cnt1-p2" >NY 14850</p>
+                  <p className="portfolio-cnt1-p3">Fully invested <span>20.00%LTV</span></p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
           <h2 className="portfolio-h2-2">Analytics</h2>
           <div className="portfolio-cont-2">
