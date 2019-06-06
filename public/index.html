@@ -2,50 +2,291 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<link rel="shortcut icon" href="%PUBLIC_URL%/logo.png">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="theme-color" content="#000000">
+	<meta charset="utf-8" />
+	<!-- <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" /> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="theme-color" content="#000000" />
 	<!--
-		manifest.json provides metadata used when your web app is added to the
-		homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-	<link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-	<!--
-		Notice the use of %PUBLIC_URL% in the tags above.
-		It will be replaced with the URL of the `public` folder during the build.
-		Only files inside the `public` folder can be referenced from the HTML.
+	<!-- <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> -->
+	<style>
+		.tellusLogo {
+			width: 100%;
+			height: 100px;
+		}
 
-		Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-		work correctly both with client-side routing and a non-root public URL.
-		Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-	<title>React Admin</title>
+		.tellus-logo {
+			float: left;
+			width: 150px;
+			height: 70px;
+			margin: 10px;
+		}
+
+		.user-img {
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin-right: 20px;
+			margin-left: 30px;
+			border-radius: 5px;
+		}
+
+		.user-name {
+			line-height: 50px;
+			font-weight: bold;
+		}
+
+		.user {
+			margin-bottom: 40px;
+		}
+
+
+		.t-slider-menu {
+			min-width: 280px;
+			height: 100%;
+		}
+
+		.content-body {
+			width: 100%;
+			height: 100%;
+			display: flex;
+		}
+
+		.content-list {
+			list-style: none;
+			padding: 0;
+		}
+
+		.menuDiv {
+			width: 100%;
+			line-height: 50px;
+			font-size: 17px;
+			font-weight: bold;
+			color: black;
+			cursor: pointer;
+		}
+
+
+		.menuDiv:hover {
+			background: rgb(240, 242, 245)
+		}
+
+		.content-list-img {
+			margin-right: 15px;
+		}
+
+		.content-list-a {
+			color: black;
+			padding: 0;
+			margin: 0;
+			margin-left: 30px;
+			color: black;
+			cursor: pointer;
+		}
+
+
+		.content-list-2 {
+			list-style: none;
+			padding: 0;
+			width: 100%;
+			overflow: hidden;
+			max-height: 0;
+			margin: 0;
+		}
+
+		.content-list-2-li {
+			padding-left: 78px;
+			height: 50px;
+			line-height: 50px;
+			font-weight: bold;
+			font-size: 15px;
+			cursor: pointer;
+		}
+
+
+		.content-list-2-li:hover {
+			background: rgb(240, 242, 245);
+		}
+
+		.content-list-2-a {
+			color: black;
+			font-size: 14px;
+		}
+
+		.content-list-2-a:hover {
+			color: black;
+		}
+
+		.right {
+			float: right;
+			margin: 12px;
+		}
+
+		.bottoms {
+			float: right;
+			margin: 12px;
+			display: none;
+		}
+	</style>
+	<title>Tellus App</title>
 </head>
 
 <body>
-	<link rel="stylesheet/less" type="text/css" href="./theme.less" />
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
-	<script>
-		const primaryColor = localStorage.getItem('@primary-color');
-		primaryColor && window.less.modifyVars({
-			'@primary-color': primaryColor,
-		})
-    </script>
-	<noscript>
-		You need to enable JavaScript to run this app.
-	</noscript>
-	<div id="root"></div>
-	<!--
-		This HTML file is a template.
-		If you open it directly in the browser, you will see an empty page.
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+	<div class="content-body">
+		<div id="slider-menu" class="t-slider-menu">
+			<div class="tellusLogo"><img class="tellus-logo" src="http://127.0.0.1/img/tellus-logo.jpg" alt="user-img"></div>
+			<div class="user">
+				<img class="user-img" src="http://127.0.0.1/img/logo.png" alt="user-img">
+				<!-- <div style="width: 50px;height:50px;border: solid 1px;margin-left: 30px;float: left;margin-right: 10px;"></div> -->
+				<h2 class="user-name">My account</h2>
+			</div>
+			<div>
+				<div id="test" class="content-list">
 
-		You can add webfonts, meta tags, or analytics to this file.
-		The build step will place the bundled scripts into the <body> tag.
+				</div>
+			</div>
+		</div>
+		<div id="root"></div>
+		<script type="text/html" id="ts1">
+				{{each sta}}	
+				<div id="content-list-span" class="menuDiv"> 
+					<h3 class="content-list-a"><img class="content-list-img" src="http://127.0.0.1/img/user-title.jpg" />
+						{{$value.title}}</h3> 
+					{{if $value.subs.length >0}}
+					{{include 'art4' $value}} 
+					{{/if}}
+				</div>
+				{{/each}}
+		</script>
 
-		To begin the development, run `npm start` or `yarn start`.
-		To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+		<script id="art4" type="text/html">
+			<ul id="content-lst" class="companyIntroduceUrl content-list-2">
+				{{each subs}}
+					<li class="content-list-2-li">
+						<a class="content-list-2-a" href="{{$value.key}}">
+						{{$value.title}}
+						</a>
+				</li>
+				{{/each}}
+			</ul>
+		</script>
+
+		<script type="text/javascript" src="http://127.0.0.1/js/menu.js"></script>
+		<script src="http://127.0.0.1/js/template-web.js"></script>
+		<script>
+			var stp = menus
+			// console.log(stp)
+			var aul = document.getElementById("test");
+			var ali = aul.getElementsByClassName("li");
+			var ul2 = document.getElementById("content-lst")
+			var ste = "";
+			var data = {
+				sta: stp
+			}
+			console.log(stp)
+			var html = template("ts1", data);
+			document.getElementById('test').innerHTML = html;
+		</script>
+		<script type="text/javascript">
+			function MenuSwitch(className) {
+				this._elements = [];
+				this._default = -1;
+				this._className = className;
+				this._previous = false;
+			}
+			MenuSwitch.prototype.setDefault = function (id) {
+				this._default = Number(id);
+			}
+			MenuSwitch.prototype.setPrevious = function (flag) {
+				this._previous = Boolean(flag);
+			}
+			MenuSwitch.prototype.collectElementbyClass = function () {
+				this._elements = [];
+				var allelements = document.getElementsByTagName("div");
+				for (var i = 0; i < allelements.length; i++) {
+					var mItem = allelements[i];
+					if (typeof mItem.className == "string" && mItem.className == this._className) {
+						var h3s = mItem.getElementsByTagName("h3");
+						var uls = mItem.getElementsByTagName("ul");
+						if (h3s.length == 1 && uls.length == 1) {
+							h3s[0].style.cursor = "hand";
+							if (this._default == this._elements.length) {
+								uls[0].style.maxHeight = "0";
+							} else {
+								uls[0].style.maxHeight = "0";
+							}
+							this._elements[this._elements.length] = mItem;
+						}
+					}
+				}
+			}
+			MenuSwitch.prototype.open = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				uls[0].style.transition = "max-height 3s ease";
+				uls[0].style.maxHeight = "3000px";
+			}
+			MenuSwitch.prototype.close = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				uls[0].style.transition = "max-height 1s ease";
+				uls[0].style.maxHeight = "0px";
+			}
+			MenuSwitch.prototype.isOpen = function (mElement) {
+				var uls = mElement.getElementsByTagName("ul");
+				return uls[0].style.transition == "max-height 3s ease", uls[0].style.maxHeight == "3000px";
+			}
+			MenuSwitch.prototype.toggledisplay = function (header) {
+				var mItem;
+				if (window.addEventListener) {
+					mItem = header.parentNode;
+				} else {
+					mItem = header.parentElement;
+				}
+				if (this.isOpen(mItem)) {
+					this.close(mItem);
+				} else {
+					this.open(mItem);
+				}
+				if (!this._previous) {
+					for (var i = 0; i < this._elements.length; i++) {
+						if (this._elements[i] != mItem) {
+							var uls = this._elements[i].getElementsByTagName("ul");
+							uls[0].style.transition = "max-height .5s ease";
+							uls[0].style.maxHeight = "0px";
+						}
+					}
+				}
+			}
+			MenuSwitch.prototype.init = function () {
+				var instance = this;
+				this.collectElementbyClass();
+				if (this._elements.length == 0) {
+					return;
+				}
+				for (var i = 0; i < this._elements.length; i++) {
+					var h3s = this._elements[i].getElementsByTagName("h3");
+					if (window.addEventListener) {
+						h3s[0].addEventListener("click", function () { instance.toggledisplay(this); }, false);
+					} else {
+						h3s[0].onclick = function () { instance.toggledisplay(this); }
+					}
+				}
+			}
+		</script>
+
+
+
+		<script language="javascript">
+			var mSwitch = new MenuSwitch("menuDiv");
+			mSwitch.setDefault(0);
+			mSwitch.setPrevious(false);
+			mSwitch.init();
+		</script>
+
+
+	</div>
 </body>
 
 </html>

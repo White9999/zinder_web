@@ -4,33 +4,33 @@ export default {
       key: '/app/a',
       title: 'Dashboard',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/b',
       title: 'Manage',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/c',
       title: 'My Finances',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/dashboard/index',
       title: 'Investment',
       icon: 'mobile',
-      subs: [
-        {
-          key: '/app/dashboard/index', title: 'Explore Opportunities', component: 'Dashboard'
+      subs: [{
+          key: '/app/dashboard/index',
+          title: 'Explore Opportunities',
+          component: 'Dashboard'
         },
         {
-          key: '/app/dashboard/portfolio', title: 'My Portfolio', component: 'Portfolio'
+          key: '/app/dashboard/portfolio',
+          title: 'My Portfolio',
+          component: 'Portfolio'
         }
       ]
     },
@@ -38,29 +38,25 @@ export default {
       key: '/app/d',
       title: 'Pay or request',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/e',
       title: 'Notifications',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/f',
       title: 'Chats',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     },
     {
       key: '/app/g',
       title: 'Homes',
       icon: 'mobile',
-      subs: [
-      ]
+      subs: []
     }
   ],
   others: [] // 非菜单相关路由
